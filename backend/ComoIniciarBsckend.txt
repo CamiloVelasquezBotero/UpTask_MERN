@@ -1,0 +1,52 @@
+- Para iniciar el proyecto con el package.json:
+    npm init
+
+- Se instala Express:
+    npm install express
+
+- Se crea el index.js que sea el archivo que tendra la configuracion del servidor
+
+- Hay que crear en el package.json en el aprtado (scripts) :
+    "dev": "node index.js"
+    Esto para que se nos pueda ejecutar ya que esto es un proyecto de node...
+
+- Instalamos (nodemon) para que actualice el servidor automaticamente y nos agilice el desarrollo:
+    npm install -D nodemon
+    Despues de haberlo instalado, tenemos que cambiar el script en el package.json, en ves de inicialiar
+    el archivo index.js con (node) que lo inicie con (nodemon)
+        "dev": "nodemon index.js"
+
+- Hay que habilitar los modulos para los imports, para que no tengamos que estar poniendo (const ... = require('...')):
+    en package.json debajo de description: "type": "module"
+
+- Instalamos mongoose como ORM para comunicarnos con la db de MongoDB
+    npm install mongoose
+
+- instalamos dotenv para las variables de entorno:
+    npm install dotenv
+    Despues de instalarla, tenemos que pner en el archivo index que use la configuracion de variables de entorno:
+        dotenv.config()
+
+- Para poder leer la informacion que nos manden de tipo POST en el request, y poder leer el body tenemos que
+activar el bodyparser haciendo:
+    app.use(express.json());
+
+- Hashear passwords con (bcrypt), tambien nos permitira comprobar los password hasheados:
+    npm install bcrypt
+
+- JSONWEBTOKEN. Para crear los tokens unicos de autenticacion y confirmar las cuentas utilizaremos JWT:
+    npm install jsonwebtoken
+
+- CORS. Para poder hacer peticiones desde el frontend hacia el backend hay que instaalar CORS y darle permisos
+al host desde donde estamos enviandole las peticiones para que el backend lo reconozca y pueda contestarle:
+    npm install cors
+
+- Nodemailer. Para poder enviarle los correos a los usuarios para que el usuario confirme su cuenta
+hayq eu hacer uso de nodemailer :
+    npm install nodemailer
+
+- Socket.io | Lo utilizaremos para hacer la aplicacion mas en tiempo real, estose usa mucho como por ejemeplo
+crear redes sociales, comoo para enviar chats, en tiempo real, etc... para instalarlo:
+    npm install socket.io
+    Luego se instala en el fronted con:
+        npm install socket.io-client
